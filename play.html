@@ -1,40 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>↓ Home ↓</title>
-
-    <script src="config/main.js" type="module"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UBG-Hyper</title>
     <style>
-      body {
-        margin: 0;
-        padding: 0;
-      }
-
-      iframe {
-        width: 100%;
-        height: 100vh;
-        border: none;
-      }
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        #gameFrame {
+            border: 5px solid #3498db; /* Change color here */
+            width: 80%;
+            height: 80%;
+            transition: all 0.3s ease; /* Smooth transition */
+        }
+        #controls {
+            display: flex;
+            align-items: center;
+            margin: 20px;
+        }
+        #fullscreenBtn {
+            margin-right: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #gameTitle {
+            font-size: 20px;
+            font-weight: bold;
+        }
     </style>
-  </head>
-  <body>
-    <iframe id="gameFrame"></iframe>
+</head>
+<body>
+
+    <div id="controls">
+        <button id="fullscreenBtn">Go Fullscreen</button>
+        <div id="gameTitle">Game Title Here</div>
+    </div>
+    <iframe id="gameFrame" src="" frameborder="0"></iframe>
 
     <script>
-      var serverUrl1 = "https://ubghyper.github.io/GameList.github.io";
-      const queryString = window.location.search;
-      const urlParams = new URLSearchParams(queryString);
-      const gameUrl = urlParams.get("gameurl");
+        const serverUrl1 = "https://ubghyper.github.io/GameList.github.io";
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const gameUrl = urlParams.get("gameurl");
 
-      if (!gameUrl) {
-        alert("Game URL not provided!");
-        window.location.href = "/"; // Redirect to homepage if game URL is missing
-      } else {
-        const embedUrl = `${serverUrl1}/${gameUrl}`;
-        document.getElementById("gameFrame").src = embedUrl;
-      }
+        if (!gameUrl) {
+            alert("Game URL not provided!");
+            window.location.href = "/"; // Redirect to homepage if game URL is missing
+        } else {
+            const embedUrl = `${serverUrl1}/${gameUrl}`;
+            document.getElementById("gameFrame").src = embedUrl;
+
+            // Extract game title from the URL
+            const gameTitle = gameUrl.split('/').pop().replace(/\.html$/, ''); // Remove .html
+            document.getElementById("gameTitle").innerText = gameTitle;
+        }
+
+        const iframe = document.getElementById('gameFrame');
+        const fullscreenBtn = document.getElementById('fullscreenBtn');
+
+        fullscreenBtn.addEventListener('click', () => {
+            if (iframe.requestFullscreen) {
+                iframe.requestFullscreen();
+            } else if (iframe.mozRequestFullScreen) { // Firefox
+                iframe.mozRequestFullScreen();
+            } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari and Opera
+                iframe.webkitRequestFullscreen();
+            } else if (iframe.msRequestFullscreen) { // IE/Edge
+                iframe.msRequestFullscreen();
+            }
+        });
     </script>
-  </body>
+
+</body>
 </html>
