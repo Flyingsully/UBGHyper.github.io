@@ -1,13 +1,13 @@
 // This changes the title of your site
 
-var sitename = "Native Lite (CHANGE ME)"; // Change this to change the name of your website.
+var sitename = "UBGHyper"; // Change this to change the name of your website.
 
 // more settings in main.css
 
 // END CONFIG
 import "/./config/custom.js";
 // import "https://nativegames.net/media/nativescript.js";
-var serverUrl1 = "https://parcoil-assets.onrender.com";
+var serverUrl1 = "https://ubghyper.github.io/GameList.github.io/";
 var currentPageTitle = document.title;
 document.title = `${currentPageTitle} | ${sitename}`;
 let gamesData = []; // Store original games data
