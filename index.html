@@ -38,10 +38,10 @@
         }
         .fixed-bottom-bar {
             position: fixed;
-            bottom: -60px; /* Start hidden below the viewport */
+            bottom: -115px; /* Start hidden below the viewport */
             left: 50%;
             transform: translateX(-50%);
-            background: white;
+            background: #9B3922;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             padding: 5px 20px; /* Thinner padding */
@@ -49,20 +49,6 @@
             align-items: center;
             transition: bottom 0.3s ease;
             z-index: 1000;
-        }
-        .fixed-bottom-bar.show {
-            bottom: 20px; /* Position when visible */
-        }
-        .arrow-up {
-            width: 0;
-            height: 0;
-            border-left: 5px solid transparent;
-            border-right: 5px solid transparent;
-            border-bottom: 10px solid white; /* Arrow color */
-            position: absolute;
-            top: -10px; /* Position above the bar */
-            left: 50%;
-            transform: translateX(-50%);
         }
         .toggle-container {
             display: flex;
