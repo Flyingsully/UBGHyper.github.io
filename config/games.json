@@ -1,74 +1,74 @@
 [
   {
-    "name": "1v1lol",
-    "image": "logo.png",
-    "url": "1v1lol",
-    "new": false
-  },
-  {
-    "name": "1v1space",
-    "image": "splash.png",
-    "url": "1v1space",
-    "new": false
-  },
-  {
-    "name": "10 Minutes Till Dawn",
-    "image": "splash.png",
-    "url": "10-minutes-till-dawn",
-    "new": false
-  },
-  {
-    "name": "100ng",
-    "image": "100ng.jpg",
-    "url": "100ng",
-    "new": false
-  },
-  {
     "name": "2048",
-    "image": "2048.png",
+    "image": "2048.jpg",
     "url": "2048",
     "new": false
   },
   {
-    "name": "2048 Multitask",
+    "name": "Awesome Planes",
     "image": "splash.png",
-    "url": "2048-multitask",
+    "url": "Awesome-Planes",
     "new": false
   },
   {
-    "name": "9007199254740992",
+    "name": "Awesome Tanks",
+    "image": "splash.png",
+      "url": "Awesome-Tanks",
+    "new": false
+  },
+  {
+    "name": "BloonsTD 4",
+    "image": "100ng.jpg",
+    "url": "BTD-4",
+    "new": false
+  },
+  {
+    "name": "Bitlife",
+    "image": "2048.png",
+    "url": "Bitlife",
+    "new": false
+  },
+  {
+    "name": "Blackjack",
+    "image": "splash.png",
+    "url": "Blackjack",
+    "new": false
+  },
+  {
+    "name": "BloonsTD 5",
     "image": "logo-4.png",
-    "url": "9007199254740992",
+    "url": "Bloons-TD-5",
     "new": false
   },
   {
-    "name": "DogeMiner",
+    "name": "Bob The Robber",
     "image": "favicon.ico",
-    "url": "DogeMiner",
+    "url": "Bob-The-Robber",
     "new": false
   },
   {
-    "name": "HexGL",
+    "name": "Click The Wawas",
     "image": "icon.png",
-    "url": "HexGL",
+    "url": "Click-The-Wawas",
     "new": false
   },
   {
-    "name": "Offline Paradise",
+    "name": "Cookie Clicker",
     "image": "assets/icon.jpeg",
-    "url": "OfflineParadise",
+    "url": "Cookie-Clicker",
     "new": false
   },
   {
-    "name": "Stickman Survival",
+    "name": "Doom",
     "image": "Icon.png",
-    "url": "Stickman-Survival",
+    "url": "Doom",
     "new": false
   },
   {
-    "name": "A Dance of Fire and Ice",
+    "name": "Drive Mad",
     "image": "splash.png",
-    "url": "a-dance-of-fire-and-ice",
+    "url": "Drive-Mad",
     "new": false
   },
   {
