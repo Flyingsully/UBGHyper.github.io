@@ -17,21 +17,22 @@
     <div id="gamesContainer"></div>
     <div class="center">
         <p>
-            Made by Fibble & Flyingsully | credit:native
+            Made by Fibble & Flyingsully | credit:native 
             <a href="https://github.com/UBGHyper/UBGHyper.github.io/">UBG Hyper</a>
         </p>
     </div>
-    
+        <div class="fixed-bottom-bar">
     <div class="toggle-container">
         <label for="themeToggle">Toggle Dark/Light Mode</label>
         <div class="toggle">
             <input type="checkbox" id="themeToggle" />
             <span class="slider"></span>
+            
+                <label id="toggleSwitch">
+                <input type="checkbox" id="toggleInput">
+                <span class="slider"></span>
         </div>
     </div>
-
-    <div class="fixed-bottom-bar">
-        <p>Always visible footer content here</p>
     </div>
 
     <script>
@@ -55,6 +56,18 @@
                     document.getElementById('themeStyle').setAttribute('href', 'config/light.css');
                 }
                 localStorage.setItem('theme', theme);
+            }
+        });
+
+                toggleInput.addEventListener('change', () => {
+            if (toggleInput.checked) {
+                // Change the favicon and title for the "on" state
+                faviconLink.href = "../assets/icons/googleclassroom.ico"; // Replace with your "on" favicon
+                document.title = "Google Classroom"; // Replace with your "on" title
+            } else {
+                // Change back to the default favicon and title
+                faviconLink.href = "../assets/icons/ubghyper.ico"; // Replace with your default favicon
+                document.title = "UBGHyper"; // Replace with your "off" title
             }
         });
     </script>
