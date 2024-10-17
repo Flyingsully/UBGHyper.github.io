@@ -1,12 +1,3 @@
-body {
-  background-image: url('../assets/background/background-white'); /* Change this to your light mode background image */
-  background-size: cover; /* Ensures the background covers the entire area */
-  color: black;
-}
-
-.game {
-  background-color: white;
-}
 
 /* Import custom styles */
 @import url(/./config/custom.css);
@@ -25,7 +16,7 @@ body {
 
 /* General styles */
 body {
-  background-image: url('../assets/backround.png'); /* Set your background image */
+  background-image: url('../assets/background-white.png'); /* Set your background image */
   background-size: cover; /* Cover the entire area */
   background-repeat: no-repeat; /* Prevent repeating */
   background-attachment: fixed; /* Keep it fixed when scrolling */
@@ -38,6 +29,10 @@ body {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+.game {
+  background-color: white;
 }
 
 /* Search input styles */
