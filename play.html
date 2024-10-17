@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UBGHyper</title>
-    <link id="favicon" rel="icon" href="../assets/icons/ubghyper.ico" type="image/x-icon"> <!-- Default favicon -->
+    <link id="favicon" rel="icon" href="../assets/icons/ubghyper.ico" type="image/x-icon">
     <style>
         body {
             display: flex;
@@ -15,23 +15,29 @@
             margin: 0;
             background-color: #f0f0f0;
         }
-          #gameFrame {
+        #gameFrame {
             border: 10px solid #3498db; /* Thinner border */
             border-bottom: 70px solid #3498db; /* Thicker bottom border */
             border-radius: 20px; /* Rounded corners */
             width: 300%; /* Increased width */
-            height: 740px; /* Increased height - adjusted from 60% to 80% */
+            height: 740px; /* Increased height */
             transition: all 1s ease; /* Smooth transition */
             box-sizing: border-box; /* Ensure padding and border are included in width/height */
-        }
+            position: relative;
         }
         #controls {
+            position: absolute;
+            bottom: 10px; /* Adjust as needed */
+            left: 10px; /* Adjust as needed */
             display: flex;
             align-items: center;
-            margin: 20px;
+            background: white; /* Background for better visibility */
+            padding: 10px;
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
         }
         #fullscreenBtn {
-            margin: 0; /* Remove margin for better alignment */
+            margin-left: 10px; /* Space between toggle and button */
             padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
@@ -102,12 +108,10 @@
                 <span class="slider"></span>
             </label>
             <div id="gameTitle">Game Title Here</div>
+            <button id="fullscreenBtn">Go Fullscreen</button>
         </div>
-        <button id="fullscreenBtn">Go Fullscreen</button>
     </div>
-</body>
-</html>
-            <script>
+    <script>
         const serverUrl1 = "https://ubghyper.github.io/GameList.github.io";
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
@@ -144,13 +148,13 @@
 
         toggleInput.addEventListener('change', () => {
             if (toggleInput.checked) {
-                // Change the favicon and title for the "on" state
                 faviconLink.href = "../assets/icons/googleclassroom.ico"; // Replace with your "on" favicon
                 document.title = "Google Classroom"; // Replace with your "on" title
             } else {
-                // Change back to the default favicon and title
                 faviconLink.href = "../assets/icons/ubghyper.ico"; // Replace with your default favicon
                 document.title = "UBGHyper"; // Replace with your "off" title
             }
         });
     </script>
+</body>
+</html>
