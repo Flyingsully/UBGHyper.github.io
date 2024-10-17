@@ -16,11 +16,11 @@
             background-color: #f0f0f0;
         }
         #gameFrame {
-            border: 30px solid #3498db; /* Thicker border */
-            border-bottom: 20px solid #3498db; /* Thicker bottom border */
+            border: 10px solid #3498db; /* Thinner border */
+            border-bottom: 30px solid #3498db; /* Thicker bottom border */
             border-radius: 20px; /* Rounded corners */
-            width: 100%;
-            height: 100%; /* Adjusted height */
+            width: 80%; /* Increased width */
+            height: 60%; /* Increased height */
             transition: all 1s ease; /* Smooth transition */
             box-sizing: border-box; /* Ensure padding and border are included in width/height */
         }
@@ -63,16 +63,18 @@
             bottom: 0;
             background-color: #ccc;
             transition: .4s;
+            border-radius: 34px; /* More rounded corners */
         }
         .slider:before {
             position: absolute;
             content: "";
-            height: 26px;
-            width: 26px;
+            height: 30px; /* Increased height for the toggle */
+            width: 30px; /* Increased width for the toggle */
             left: 4px;
-            bottom: 4px;
+            bottom: 2px; /* Adjusted position */
             background-color: white;
             transition: .4s;
+            border-radius: 50%; /* Fully rounded toggle */
         }
         #toggleSwitch input:checked + .slider {
             background-color: #3498db;
@@ -91,16 +93,19 @@
     </style>
 </head>
 <body>
-    <div id="controls">
-        <label id="toggleSwitch">
-            <input type="checkbox" id="toggleInput">
-            <span class="slider"></span>
-        </label>
-        <div id="gameTitle">Game Title Here</div>
-    </div>
     <div style="display: flex; flex-direction: column; align-items: center;">
-        <button id="fullscreenBtn">Go Fullscreen</button>
         <iframe id="gameFrame" src="" frameborder="0"></iframe>
+        <div id="controls">
+            <label id="toggleSwitch">
+                <input type="checkbox" id="toggleInput">
+                <span class="slider"></span>
+            </label>
+            <div id="gameTitle">Game Title Here</div>
+        </div>
+        <button id="fullscreenBtn">Go Fullscreen</button>
+    </div>
+</body>
+</html>
             <script>
         const serverUrl1 = "https://ubghyper.github.io/GameList.github.io";
         const queryString = window.location.search;
