@@ -25,7 +25,7 @@
         }
         .game-card {
             background: white;
-            border-radius: 10px;
+            border-radius: 10px 10px 20px 20px; /* Rounded bases */
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             padding: 20px;
             transition: transform 0.3s, box-shadow 0.3s;
@@ -37,7 +37,7 @@
         }
         .fixed-bottom-bar {
             position: fixed;
-            bottom: 20px;
+            bottom: -60px; /* Start hidden below the viewport */
             left: 50%;
             transform: translateX(-50%);
             background: white;
@@ -46,15 +46,17 @@
             padding: 10px 20px;
             display: flex;
             align-items: center;
-            transition: box-shadow 0.3s;
+            transition: bottom 0.3s ease;
+            z-index: 1000;
         }
-        .fixed-bottom-bar:hover {
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        .fixed-bottom-bar.show {
+            bottom: 20px; /* Position when visible */
         }
         .toggle-container {
             display: flex;
             align-items: center;
             margin-right: 20px;
+            gap: 10px; /* Space between toggle and label */
         }
         .toggle {
             position: relative;
@@ -69,12 +71,12 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: #ccc;
+            background-color: #87ceeb; /* Sky blue for light mode */
             border-radius: 25px;
             transition: background-color 0.3s;
         }
         input:checked + .slider {
-            background-color: #66bb6a;
+            background-color: #555; /* Dark grey for dark mode */
         }
         .slider:before {
             position: absolute;
@@ -88,24 +90,12 @@
         input:checked + .slider:before {
             transform: translateX(25px);
         }
-        .icon {
-            font-size: 18px;
-            position: absolute;
-            top: 3px;
-            left: 5px;
-            transition: opacity 0.3s;
-        }
-        input:checked + .slider .icon-light {
-            opacity: 0;
-        }
-        input:checked + .slider .icon-dark {
-            opacity: 1;
-        }
         input[type="text"] {
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
             transition: border-color 0.3s;
+            margin-left: 10px; /* Space between input and toggle */
         }
         input[type="text"]:focus {
             border-color: #66bb6a;
@@ -130,15 +120,12 @@
             <a href="https://github.com/UBGHyper/UBGHyper.github.io/">UBG Hyper</a>
         </p>
     </div>
-    <div class="fixed-bottom-bar">
+    <div class="fixed-bottom-bar" id="bottomBar">
         <div class="toggle-container">
             <label for="themeToggle">Toggle Dark/Light Mode</label>
             <div class="toggle">
                 <input type="checkbox" id="themeToggle" />
-                <span class="slider">
-                    <span class="icon icon-light">🌞</span>
-                    <span class="icon icon-dark">🌜</span>
-                </span>
+                <span class="slider"></span>
             </div>
         </div>
         <div class="center">
@@ -150,6 +137,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             const themeToggle = document.getElementById('themeToggle');
             const currentTheme = localStorage.getItem('theme') || 'light';
+            const bottomBar = document.getElementById('bottomBar');
 
             // Set initial theme
             setTheme(currentTheme);
@@ -172,6 +160,15 @@
                 }
                 localStorage.setItem('theme', theme);
             }
+
+            // Show/hide bottom bar on hover
+            document.body.addEventListener('mousemove', (event) => {
+                if (event.clientY > window.innerHeight - 50) {
+                    bottomBar.classList.add('show');
+                } else {
+                    bottomBar.classList.remove('show');
+                }
+            });
         });
     </script>
 </body>
