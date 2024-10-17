@@ -96,6 +96,7 @@
             font-size: 20px;
             font-weight: bold;
             margin-left: 20px;
+            text-transform: capitalize; /* Ensures title is capitalized */
         }
     </style>
 </head>
@@ -110,8 +111,36 @@
             <div id="gameTitle">Game Title Here</div>
             <button id="fullscreenBtn">Go Fullscreen</button>
         </div>
+          <div class="toggle-container">
+                <label for="themeToggle">Toggle Dark/Light Mode</label>
+              <div class="toggle">
+         <br>
     </div>
     <script>
+
+                document.addEventListener('DOMContentLoaded', () => {
+            const themeToggle = document.getElementById('themeToggle');
+            const currentTheme = localStorage.getItem('theme') || 'light';
+
+            // Set initial theme
+            setTheme(currentTheme);
+            themeToggle.checked = currentTheme === 'dark';
+
+            themeToggle.addEventListener('change', () => {
+                const newTheme = themeToggle.checked ? 'dark' : 'light';
+                setTheme(newTheme);
+            });
+
+            function setTheme(theme) {
+                if (theme === 'dark') {
+                    document.getElementById('themeStyle').setAttribute('href', 'config/dark.css');
+                } else {
+                    document.getElementById('themeStyle').setAttribute('href', 'config/light.css');
+                }
+                localStorage.setItem('theme', theme);
+            }
+        });
+
         const serverUrl1 = "https://ubghyper.github.io/GameList.github.io";
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
@@ -124,9 +153,10 @@
             const embedUrl = `${serverUrl1}/${gameUrl}`;
             document.getElementById("gameFrame").src = embedUrl;
 
-            // Extract game title from the URL
+            // Format game title from the URL
             const gameTitle = gameUrl.split('/').pop().replace(/\.html$/, ''); // Remove .html
-            document.getElementById("gameTitle").innerText = gameTitle;
+            const formattedTitle = gameTitle.replace(/-/g, ' ').replace(/\b\w/g, char => char.toUpperCase()); // Replace hyphens with spaces and capitalize words
+            document.getElementById("gameTitle").innerText = formattedTitle;
         }
 
         const iframe = document.getElementById('gameFrame');
