@@ -98,30 +98,11 @@
             margin-left: 20px;
             text-transform: capitalize; /* Ensures title is capitalized */
         }
-                body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f0f0f0;
-        }
-        #gameFrame {
-            border: 10px solid #3498db; /* Thinner border */
-            border-bottom: 70px solid #3498db; /* Thicker bottom border */
-            border-radius: 20px; /* Rounded corners */
-            width: 100%; /* Set to 100% to fit the container */
-            height: auto; /* Height will be adjusted dynamically */
-            transition: all 1s ease; /* Smooth transition */
-            box-sizing: border-box; /* Ensure padding and border are included in width/height */
-            position: relative;
-        }
     </style>
 </head>
 <body>
     <div style="display: flex; flex-direction: column; align-items: center;">
-        <iframe id="gameFrame" src="" frameborder="0" scrolling="no"></iframe>
+        <iframe id="gameFrame" src="" frameborder="0"></iframe>
         <div id="controls">
             <label id="toggleSwitch">
                 <input type="checkbox" id="toggleInput">
@@ -136,20 +117,6 @@
          <br>
     </div>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Existing JavaScript code
-
-            const iframe = document.getElementById('gameFrame');
-
-            iframe.addEventListener('load', () => {
-                // Adjust the height of the iframe based on its content
-                try {
-                    const contentHeight = iframe.contentWindow.document.body.scrollHeight;
-                    iframe.style.height = contentHeight + 'px'; // Set iframe height
-                } catch (error) {
-                    console.error("Unable to access iframe content: ", error);
-                }
-            });
 
                 document.addEventListener('DOMContentLoaded', () => {
             const themeToggle = document.getElementById('themeToggle');
