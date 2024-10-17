@@ -18,7 +18,6 @@ body {
   background-size: cover; /* Cover the entire area */
   background-repeat: no-repeat; /* Prevent repeating */
   background-attachment: fixed; /* Keep it fixed when scrolling */
-  background-color: var(--background-color); /* Fallback color */
   color: var(--text-color);
   font-family: "ubuntu", sans-serif;
   margin: 0;
