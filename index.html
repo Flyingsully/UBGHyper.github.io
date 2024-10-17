@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
     <link rel="stylesheet" href="config/light.css" id="themeStyle" />
+    <link rel="icon" href="../assets/icons/ubghyper.ico" id="faviconLink">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -43,7 +44,7 @@
             background: white;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            padding: 10px 20px;
+            padding: 5px 20px; /* Thinner padding */
             display: flex;
             align-items: center;
             transition: bottom 0.3s ease;
@@ -51,6 +52,17 @@
         }
         .fixed-bottom-bar.show {
             bottom: 20px; /* Position when visible */
+        }
+        .arrow-up {
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-bottom: 10px solid white; /* Arrow color */
+            position: absolute;
+            top: -10px; /* Position above the bar */
+            left: 50%;
+            transform: translateX(-50%);
         }
         .toggle-container {
             display: flex;
@@ -121,10 +133,18 @@
         </p>
     </div>
     <div class="fixed-bottom-bar" id="bottomBar">
+        <div class="arrow-up"></div> <!-- Arrow pointing up -->
         <div class="toggle-container">
             <label for="themeToggle">Toggle Dark/Light Mode</label>
             <div class="toggle">
                 <input type="checkbox" id="themeToggle" />
+                <span class="slider"></span>
+            </div>
+        </div>
+        <div class="toggle-container">
+            <label for="tabToggle">Toggle Tab Icon/Title</label>
+            <div class="toggle">
+                <input type="checkbox" id="tabToggle" />
                 <span class="slider"></span>
             </div>
         </div>
@@ -136,8 +156,10 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const themeToggle = document.getElementById('themeToggle');
+            const tabToggle = document.getElementById('tabToggle');
             const currentTheme = localStorage.getItem('theme') || 'light';
             const bottomBar = document.getElementById('bottomBar');
+            const faviconLink = document.getElementById('faviconLink');
 
             // Set initial theme
             setTheme(currentTheme);
@@ -146,6 +168,18 @@
             themeToggle.addEventListener('change', () => {
                 const newTheme = themeToggle.checked ? 'dark' : 'light';
                 setTheme(newTheme);
+            });
+
+            tabToggle.addEventListener('change', () => {
+                if (tabToggle.checked) {
+                    // Change the favicon and title for the "on" state
+                    faviconLink.href = "../assets/icons/googleclassroom.ico"; // Replace with your "on" favicon
+                    document.title = "Google Classroom"; // Replace with your "on" title
+                } else {
+                    // Change back to the default favicon and title
+                    faviconLink.href = "../assets/icons/ubghyper.ico"; // Replace with your default favicon
+                    document.title = "UBGHyper"; // Replace with your "off" title
+                }
             });
 
             function setTheme(theme) {
