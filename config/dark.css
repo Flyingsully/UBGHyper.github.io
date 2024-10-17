@@ -1,0 +1,9 @@
+body {
+  background-image: url('../assets/background/background.png'); /* Change this to your dark mode background image */
+  background-size: cover; /* Ensures the background covers the entire area */
+  color: white;
+}
+
+.game {
+  background-color: #333;
+}
