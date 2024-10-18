@@ -24,14 +24,17 @@
             justify-content: center;
             gap: 15px;
         }
-        .game-card {
-            background: white;
-            border-radius: 10px 10px 20px 20px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            width: 200px;
-        }
+.game-card {
+    background: white;
+    border-radius: 10px 10px 20px 20px; /* Existing top corners rounded */
+    border-bottom-left-radius: 20px; /* Make bottom left corner rounded */
+    border-bottom-right-radius: 20px; /* Make bottom right corner rounded */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    width: 200px;
+}
+
         .game-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
