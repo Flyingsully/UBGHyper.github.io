@@ -211,14 +211,14 @@
   },
   {
     "name": "Raft Wars",
-    "image": "portalflash.jpg",
+    "image": "raftwars.png",
     "url": "Raft-Wars",
     "new": false,
     "credits": "Developed by Martijn Kunst"
   },
   {
     "name": "Raft Wars 2",
-    "image": "portalflash.jpg",
+    "image": "raftwars2.jpg",
     "url": "Raft-Wars-2",
     "new": false,
     "credits": "Developed by Martijn Kunst"
@@ -253,7 +253,7 @@
   },
   {
     "name": "Submerisble",
-    "image": "submerisble.jpg",
+    "image": "submerisble.png",
     "url": "Submerisble",
     "new": false,
     "credits": "Developed by unknown"
